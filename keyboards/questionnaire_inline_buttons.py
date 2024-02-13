@@ -6,29 +6,64 @@ from aiogram.types import (
 
 async def questionnaire_keyboard():
     markup = InlineKeyboardMarkup()
-    python_button = InlineKeyboardButton(
-        "Python 🐍",
-        callback_data="python"
+    run_button = InlineKeyboardButton(
+        "Run🏃‍",
+        callback_data="run"
     )
-    mojo_button = InlineKeyboardButton(
-        "Mojo 🔥",
-        callback_data="mojo"
+    bike_button = InlineKeyboardButton(
+        "Bike🚴‍",
+        callback_data="bike"
     )
-    markup.add(python_button)
-    markup.add(mojo_button)
+    swim_button = InlineKeyboardButton(
+        "Swim🏊‍♂️",
+        callback_data="swim"
+    )
+    markup.add(run_button)
+    markup.add(bike_button)
+    markup.add(swim_button)
     return markup
 
 
-async def python_questionnaire_keyboard():
+async def run_questionnaire_keyboard():
     markup = InlineKeyboardMarkup()
-    python_button = InlineKeyboardButton(
+    run_yes_button = InlineKeyboardButton(
         "Yes",
-        callback_data="yes_python"
+        callback_data="yes_run"
     )
-    python_no_button = InlineKeyboardButton(
+    run_no_button = InlineKeyboardButton(
         "No",
-        callback_data="no_python"
+        callback_data="no_run"
     )
-    markup.add(python_button)
-    markup.add(python_no_button)
+    markup.add(run_yes_button)
+    markup.add(run_no_button)
+    return markup
+
+
+async def bike_questionnaire_keyboard():
+    markup = InlineKeyboardMarkup()
+    bike_yes_button = InlineKeyboardButton(
+        "Yes",
+        callback_data="yes_bike"
+    )
+    bike_no_button = InlineKeyboardButton(
+        "No",
+        callback_data="no_bike"
+    )
+    markup.add(bike_yes_button)
+    markup.add(bike_no_button)
+    return markup
+
+
+async def swim_questionnaire_keyboard():
+    markup = InlineKeyboardMarkup()
+    swim_yes_button = InlineKeyboardButton(
+        "Yes",
+        callback_data="yes_swim"
+    )
+    swim_no_button = InlineKeyboardButton(
+        "No",
+        callback_data="no_swim"
+    )
+    markup.add(swim_yes_button)
+    markup.add(swim_no_button)
     return markup
