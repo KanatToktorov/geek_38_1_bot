@@ -107,7 +107,7 @@ async def detect_dislike_call(call:types.CallbackQuery):
     # print(call.data[5:])
     # print(call.data.replace("like_", ""))
     # await call.message.delete()
-    owner = re.sub("dislike_", "", call.data)
+    owner = re.sub("dislike-", "", call.data)
     print(owner)
     db = Database()
     try:
@@ -136,7 +136,7 @@ def register_profile_handler(dp: Dispatcher):
     )
     dp.register_callback_query_handler(
         detect_dislike_call,
-        lambda call: "dislike_" in call.data
+        lambda call: "dislike-" in call.data
     )
     dp.register_callback_query_handler(
         detect_like_call,
