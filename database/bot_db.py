@@ -186,3 +186,11 @@ class Database:
             sql_queries.SELECT_REFERRALS,
             (tg_id,)
         ).fetchall()
+
+
+    def sql_insert_news(self, news):
+        self.cursor.execute(
+            sql_queries.INSERT_NEWS_QUERY,
+            (None, news,)
+        )
+        self.connection.commit()
