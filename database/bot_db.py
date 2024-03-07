@@ -17,6 +17,7 @@ class Database:
         self.connection.execute(sql_queries.CREATE_LIKE_TABLE_QUERY)
         self.connection.execute(sql_queries.CREATE_DISLIKE_TABLE_QUERY)
         self.connection.execute(sql_queries.CREATE_REFERENCE_TABLE_QUERY)
+        self.connection.execute(sql_queries.CREATE_NEWS_TABLE_QUERY)
 
         try:
             self.connection.execute(sql_queries.ALTER_USER_TABLE)
@@ -188,9 +189,9 @@ class Database:
         ).fetchall()
 
 
-    def sql_insert_news(self, news):
+    def sql_insert_news(self, link):
         self.cursor.execute(
             sql_queries.INSERT_NEWS_QUERY,
-            (None, news,)
+            (None, link,)
         )
         self.connection.commit()

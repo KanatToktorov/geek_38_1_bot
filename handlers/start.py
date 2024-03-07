@@ -63,11 +63,11 @@ async def start_button(message: types.Message):
     #     )
 
 async def latest_news_call(call: types.CallbackQuery):
+    db = bot_db.Database()
     scraper = NewsScraper()
     data = scraper.scrape_data()
-    print()
-    # db.insert_news()
     for i in data[:5]:
+        db.sql_insert_news(scraper.PLUS_URL + i)
         await bot.send_message(
             chat_id=call.from_user.id,
             text=scraper.PLUS_URL + i
