@@ -173,3 +173,7 @@ UNIQUE(link)
 INSERT_NEWS_QUERY = """
 INSERT OR IGNORE INTO news VALUES (?,?)
 """
+
+SELECT_news = """
+SELECT * FROM news
+"""

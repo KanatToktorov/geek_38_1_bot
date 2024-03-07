@@ -195,3 +195,13 @@ class Database:
             (None, link,)
         )
         self.connection.commit()
+
+
+    def sql_select_news(self):
+        self.cursor.row_factory = lambda cursor, row: {
+            "id": row[0],
+            "link": row[1],
+        }
+        return self.cursor.execute(
+            sql_queries.SELECT_news
+        ).fetchone()
